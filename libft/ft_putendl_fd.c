@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 17:43:29 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/08 17:43:29 by marvin           ###   ########.fr       */
+/*   Created: 2026/06/18 13:41:55 by marvin            #+#    #+#             */
+/*   Updated: 2026/06/18 13:41:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct s_list
+void    ft_putendl_fd(char *s, int fd)
 {
-    void    *content;
-    struct s_list   *next;    
-}   t_list;
-
-int    ft_atoi(const char *str);
-
-int    ft_isalpha(int c);
-
-int    bzero(void *s, size_t n);
-
-#endif  
+    if (!s || !fd)
+        return ;
+    ft_pustr_fd(s, fd);
+    ft_putchar_fd('\n', fd);
+}

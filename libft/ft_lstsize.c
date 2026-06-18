@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 17:43:29 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/08 17:43:29 by marvin           ###   ########.fr       */
+/*   Created: 2026/06/18 17:37:04 by marvin            #+#    #+#             */
+/*   Updated: 2026/06/18 17:37:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct s_list
+int ft_lstsize(t_list *lst)
 {
-    void    *content;
-    struct s_list   *next;    
-}   t_list;
+    int count;
 
-int    ft_atoi(const char *str);
-
-int    ft_isalpha(int c);
-
-int    bzero(void *s, size_t n);
-
-#endif  
+    count = 0;
+    if (lst)
+    {
+        count++;
+        count += ft_lstsize(lst->next);
+    }
+    return (count);
+}

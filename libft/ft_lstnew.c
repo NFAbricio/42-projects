@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 17:43:29 by marvin            #+#    #+#             */
-/*   Updated: 2026/06/08 17:43:29 by marvin           ###   ########.fr       */
+/*   Created: 2026/06/18 16:35:22 by marvin            #+#    #+#             */
+/*   Updated: 2026/06/18 16:35:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct s_list
+t_list  *ft_lstnew(void *content)
 {
-    void    *content;
-    struct s_list   *next;    
-}   t_list;
+    t_list  *new;
 
-int    ft_atoi(const char *str);
-
-int    ft_isalpha(int c);
-
-int    bzero(void *s, size_t n);
-
-#endif  
+    new = (t_list *)malloc(sizeof(t_list));
+    if (!new)
+        return (NULL);
+    new->content =  content;
+    new->next = NULL;
+    return (new);
+}
