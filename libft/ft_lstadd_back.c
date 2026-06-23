@@ -24,7 +24,7 @@ void    ft_lstadd_back(t_list **lst, t_list *new)
     }
     else
     {
-        aux = ft_lstast(*lst);
+        aux = ft_lstlast(*lst);
         aux->next = new; 
     }
 }
